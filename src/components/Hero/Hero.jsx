@@ -7,7 +7,7 @@ import "./Hero.css";
 
 const Hero = ({ onScroll }) => {
   const [typedIndex, setTypedIndex] = useState(0);
-
+  console.log("ljl");
   // Colors corresponding to each string
   const stringColors = ["#FFD700", "#7FFF00", "#FF1493"];
 
