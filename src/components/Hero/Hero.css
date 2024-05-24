@@ -1,0 +1,12 @@
+.animate-image-tilt {
+    animation: tilt 1s ease-in-out infinite alternate;
+  }
+  
+  @keyframes tilt {
+    0% {
+      transform: rotate(-2deg);
+    }
+    100% {
+      transform: rotate(2deg);
+    }
+  }

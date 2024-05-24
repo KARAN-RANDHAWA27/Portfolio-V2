@@ -1,53 +1,90 @@
-import React from "react";
-import {
-  MenuIcon,
-  HomeIcon,
-  UserIcon,
-  BriefcaseIcon,
-  MailIcon,
-} from "@heroicons/react/outline";
+import React, { useState } from "react";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <header className="bg-gray-800 py-4">
-      <nav className="container mx-auto flex flex-wrap items-center justify-center">
-        <div className="flex items-center space-x-4">
-          <a className="text-white text-2xl font-bold" href="#">
-            My Portfolio
+    <header className="bg-gray-800 text-white">
+      <div className="container mx-auto flex justify-between items-center py-4 px-4 md:px-0">
+        <div className="text-xl font-bold flex items-center">
+          <span className="mr-4">Your Logo or Brand</span>
+          <button className="md:hidden focus:outline-none" onClick={toggleMenu}>
+            <svg
+              className="w-6 h-6 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              {isOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              )}
+            </svg>
+          </button>
+        </div>
+        <nav
+          className={`md:flex flex-col md:flex-row md:space-x-4 ${
+            isOpen ? "block" : "hidden"
+          }`}
+        >
+          <a
+            href="#about"
+            className="block md:inline-block py-2 md:py-0 hover:text-gray-300"
+          >
+            About
           </a>
-        </div>
-        <button className="text-white block lg:hidden" type="button">
-          <MenuIcon className="w-6 h-6" />
+          <a
+            href="#projects"
+            className="block md:inline-block py-2 md:py-0 hover:text-gray-300"
+          >
+            Projects
+          </a>
+          <a
+            href="#contact"
+            className="block md:inline-block py-2 md:py-0 hover:text-gray-300"
+          >
+            Contact
+          </a>
+        </nav>
+      </div>
+      {/* Close button at the bottom of the drawer */}
+      {isOpen && (
+        <button
+          className="md:hidden fixed bottom-0 left-0 w-full bg-gray-800 text-white py-2"
+          onClick={toggleMenu}
+        >
+          <svg
+            className="w-6 h-6 mx-auto"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
         </button>
-        <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto lg:justify-center">
-          <div className="text-sm lg:flex-grow flex flex-col lg:flex-row lg:space-x-6 justify-center">
-            <a
-              href="#home"
-              className="flex items-center mt-4 lg:mt-0 text-white hover:text-gray-400"
-            >
-              <HomeIcon className="w-5 h-5 mr-2" /> Home
-            </a>
-            <a
-              href="#about"
-              className="flex items-center mt-4 lg:mt-0 text-white hover:text-gray-400"
-            >
-              <UserIcon className="w-5 h-5 mr-2" /> About
-            </a>
-            <a
-              href="#projects"
-              className="flex items-center mt-4 lg:mt-0 text-white hover:text-gray-400"
-            >
-              <BriefcaseIcon className="w-5 h-5 mr-2" /> Projects
-            </a>
-            <a
-              href="#contact"
-              className="flex items-center mt-4 lg:mt-0 text-white hover:text-gray-400"
-            >
-              <MailIcon className="w-5 h-5 mr-2" /> Contact
-            </a>
-          </div>
-        </div>
-      </nav>
+      )}
     </header>
   );
 };
