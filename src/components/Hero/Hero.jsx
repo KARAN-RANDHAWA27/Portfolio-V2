@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ReactTyped from "react-typed";
+import { ReactTyped } from "react-typed";
 import { ArrowDownIcon } from "@heroicons/react/solid";
 import backgroundImage from "../../assets/Image1.jpg";
 import profile from "../../assets/profile.jpg";
