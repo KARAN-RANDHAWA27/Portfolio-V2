@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ReactTyped } from "react-typed";
+import ReactTyped from "react-typed";
 import { ArrowDownIcon } from "@heroicons/react/solid";
 import backgroundImage from "../../assets/Image1.jpg";
 import profile from "../../assets/profile.jpg";
@@ -74,9 +74,9 @@ const Hero = ({ onScroll }) => {
               />
             )}
           </div>
-          <div className="mb-4 flex flex-wrap justify-center">
+          <div className="mb-4 flex flex-col md:flex-row justify-center md:justify-start">
             <button
-              className="text-white bg border-2 border-8d0837 hover:bg-ff0642 hover:text-white py-3 px-6 rounded-lg transition-all duration-300 mb-2 md:mb-0 md:mr-4 contact-button"
+              className="text-white bg border-2 border-8d0837 hover:bg-ff0642 hover:text-white py-3 px-6 rounded-lg transition-all duration-300 contact-button"
               onClick={() => {
                 // Handle download CV action
               }}
@@ -84,7 +84,7 @@ const Hero = ({ onScroll }) => {
               Download CV
             </button>
             <button
-              className="text-white bg border-2 border-8d0837 bg-ff hover:bg-ff0642 hover:text-white py-3 px-6 rounded-lg transition-all duration-300 mb-2 md:mb-0 md:mr-4 contact-button"
+              className="text-white bg border-2 border-8d0837 hover:bg-ff0642 hover:text-white py-3 px-6 rounded-lg transition-all duration-300 contact-button"
               onClick={() => {
                 // Handle contact me action
               }}

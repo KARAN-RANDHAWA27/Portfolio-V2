@@ -10,3 +10,17 @@
       transform: rotate(2deg);
     }
   }
+
+/* Add media queries to handle responsiveness */
+.contact-button {
+  width: 100%; /* Make buttons take full width on small screens */
+  margin-bottom: 0.5rem; /* Add some space between stacked buttons */
+}
+
+@media (min-width: 768px) {
+  .contact-button {
+    width: auto; /* Reset width for larger screens */
+    margin-bottom: 0; /* Remove bottom margin for larger screens */
+    margin-right: 1rem; /* Add space to the right */
+  }
+}
