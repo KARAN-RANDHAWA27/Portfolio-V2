@@ -74,7 +74,7 @@ const Hero = ({ onScroll }) => {
               />
             )}
           </div>
-          <div className="mb-4 flex flex-col md:flex-row justify-center md:justify-start">
+          <div className="mb-4 flex flex-col md:flex-row justify-center md:justify-center">
             <button
               className="text-white bg border-2 border-8d0837 hover:bg-ff0642 hover:text-white py-3 px-6 rounded-lg transition-all duration-300 contact-button"
               onClick={() => {
