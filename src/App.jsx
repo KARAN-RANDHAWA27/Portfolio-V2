@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import "./index.css"; // Import Tailwind CSS
 import Hero from "./components/Hero/Hero";
-import Home from "./components/Home.js/Home";
+import AppRouter from "./router/Router";
 
 function App() {
   const [flipped, setFlipped] = useState(false);
@@ -33,7 +33,7 @@ function App() {
           <Hero onScroll={handleScroll} />
         </div>
         <div className="back">
-          <Home />
+          <AppRouter />
         </div>
       </div>
     </div>
