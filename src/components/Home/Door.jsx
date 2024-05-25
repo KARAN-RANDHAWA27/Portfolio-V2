@@ -11,7 +11,7 @@ const Door = () => {
   return (
     <div className="backDoor">
       {isOpen && (
-        <div className="">
+        <div className="door-content">
           <ul>
             <li>JavaScript</li>
             <li>HTML</li>
@@ -25,8 +25,11 @@ const Door = () => {
       )}
       <div className={`door ${isOpen ? "doorOpen" : ""}`} onClick={toggleDoor}>
         <div className="door-frame">
+          <h4 className="flex justify-start flex-1">Open</h4>
           <div className="door-leaf"></div>
-          <div className="door-handle"></div>
+          <div className="door-handle">
+            <div className="door-opener"></div>
+          </div>
         </div>
       </div>
     </div>

@@ -36,7 +36,7 @@
   }
   
   .intro-box {
-    background-color: rgba(0, 0, 0, 0.8);
+    /* background-color: rgba(0, 0, 0, 0.8); */
     border: 2px solid rgba(114, 8, 52, 0.8);
     border-radius: 16px;
     padding: 20px;
