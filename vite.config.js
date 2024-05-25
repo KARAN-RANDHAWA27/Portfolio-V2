@@ -1,7 +1,9 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+// vite.config.js
 
-// https://vitejs.dev/config/
+import reactRefresh from '@vitejs/plugin-react-refresh';
+import { defineConfig } from 'vite';
+import styledComponents from 'vite-plugin-styled-components';
+
 export default defineConfig({
-  plugins: [react()],
-})
+  plugins: [reactRefresh(), styledComponents()],
+});

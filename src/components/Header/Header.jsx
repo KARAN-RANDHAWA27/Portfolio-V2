@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Link as ReactRouterLink } from "react-router-dom";
+import { Link as ReactRouterLink, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -13,6 +14,8 @@ const Header = () => {
   };
 
   const NavLink = ({ to, children, onClick }) => {
+    const isActive = location.pathname === to;
+
     return (
       <ReactRouterLink
         to={to}
@@ -26,9 +29,8 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-gray-900 text-white shadow-md">
+    <header className="header fixed top-0 left-0 right-0 bg-transparent text-white shadow-md z-50">
       <div className="container mx-auto flex justify-between items-center py-4 px-4 md:px-0">
-        {/* Logo or Brand */}
         <div className="flex items-center">
           <ReactRouterLink to="/" className="text-xl font-bold text-white">
             Your Logo or Brand

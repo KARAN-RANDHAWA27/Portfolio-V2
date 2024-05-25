@@ -1,37 +1,47 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ReactTyped } from "react-typed";
 import { ArrowDownIcon } from "@heroicons/react/solid";
-import backgroundImage from "../../assets/Image1.jpg";
 import profile from "../../assets/profile.jpg";
+import hero from "../../assets/hero.mp4";
 import "./Hero.css";
 
 const Hero = ({ onScroll }) => {
   const [typedIndex, setTypedIndex] = useState(0);
-  console.log("ljl");
-  // Colors corresponding to each string
-  const stringColors = ["#FFD700", "#7FFF00", "#FF1493"];
+  const [fade, setFade] = useState(false);
+  const stringColors = ["#0b3d91", "#800080", "#e0e0e0"];
 
-  // Callback to update typedIndex state
   const handleTyped = (index) => {
     setTypedIndex(index);
   };
 
+  // Handle video fade effect on restart
+  const handleVideoRestart = () => {
+    setFade(true);
+    setTimeout(() => {
+      setFade(false);
+    }, 1000); // Duration should match the CSS transition time
+  };
+
+  useEffect(() => {
+    const videoElement = document.getElementById("background-video");
+    videoElement.addEventListener("ended", handleVideoRestart);
+    return () => {
+      videoElement.removeEventListener("ended", handleVideoRestart);
+    };
+  }, []);
+
   return (
-    <div
-      className="relative min-h-screen flex flex-col justify-center items-center text-white px-4"
-      style={{
-        backgroundImage: `linear-gradient(225deg, 
-          rgba(84, 98, 107, 0.8) 0%, 
-          rgba(9, 21, 153, 0.8) 25%, 
-          rgba(15, 12, 45, 0.8) 50%, 
-          rgba(37, 10, 46, 0.8) 75%, 
-          rgba(114, 8, 52, 0.8) 100%), 
-          url(${backgroundImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      <div className="flex flex-col md:flex-row items-center w-full max-w-7xl">
+    <div className="relative min-h-screen flex flex-col justify-center items-center text-white px-4">
+      <video
+        id="background-video"
+        className={`video-background ${fade ? "fade-out" : "fade-in"}`}
+        src={hero}
+        autoPlay
+        loop
+        muted
+      />
+      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+      <div className="relative flex flex-col md:flex-row items-center w-full max-w-7xl">
         <div className="flex-1 text-center md:text-left mb-8 md:mb-0">
           <p className="text-lg md:text-xl mb-4">
             Hello there, Welcome to my site.
@@ -76,7 +86,7 @@ const Hero = ({ onScroll }) => {
           </div>
           <div className="mb-4 flex flex-col md:flex-row justify-center md:justify-center">
             <button
-              className="text-white bg border-2 border-8d0837 hover:bg-ff0642 hover:text-white py-3 px-6 rounded-lg transition-all duration-300 contact-button"
+              className="text-white bg border-2 border-8d0837 hover:bg-ff0642 hover:text-white py-3 px-6 rounded-lg transition-all duration-300 contact-button ml-0 md:ml-4 mt-4 md:mt-0"
               onClick={() => {
                 // Handle download CV action
               }}
@@ -84,7 +94,7 @@ const Hero = ({ onScroll }) => {
               Download CV
             </button>
             <button
-              className="text-white bg border-2 border-8d0837 hover:bg-ff0642 hover:text-white py-3 px-6 rounded-lg transition-all duration-300 contact-button"
+              className="text-white bg border-2 border-8d0837 hover:bg-ff0642 hover:text-white py-3 px-6 rounded-lg transition-all duration-300 contact-button ml-0 md:ml-4 mt-4 md:mt-0"
               onClick={() => {
                 // Handle contact me action
               }}
@@ -106,29 +116,14 @@ const Hero = ({ onScroll }) => {
                 rgba(84, 98, 107, 0.8))`,
             }}
           >
-            <div
+            <img
+              src={profile} // Put your image path here
+              alt="Karan Randhawa"
+              className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover"
               style={{
                 borderRadius: "16px",
-                backgroundImage: `linear-gradient(white, white), linear-gradient(225deg, 
-                rgba(114, 8, 52, 0.8), 
-                rgba(37, 10, 46, 0.8), 
-                rgba(15, 12, 45, 0.8), 
-                rgba(9, 21, 153, 0.8), 
-                rgba(84, 98, 107, 0.8))`,
-                backgroundOrigin: "border-box",
-                backgroundClip: "content-box, border-box",
-                border: "8px solid transparent",
               }}
-            >
-              <img
-                src={profile} // Put your image path here
-                alt="Karan Randhawa"
-                className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover"
-                style={{
-                  borderRadius: "16px",
-                }}
-              />
-            </div>
+            />
           </div>
         </div>
       </div>

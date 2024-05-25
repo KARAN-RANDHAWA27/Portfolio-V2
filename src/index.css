@@ -6,3 +6,26 @@
 .App {
   font-family: Arial, sans-serif;
 }
+
+.header {
+  position: relative;
+  z-index: 1000; /* Adjust as needed */
+  /* Other styles */
+}
+
+
+@media (max-width: 768px) {
+  .header {
+    background-color: rgba(0, 0, 0, 0.8); /* Example transparent background color */
+    /* Add other mobile-specific styles */
+  }
+}
+
+@keyframes slide {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
