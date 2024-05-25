@@ -4,34 +4,30 @@ import "./Door.css";
 const Door = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleKnock = () => {
-    setIsOpen(true);
-    setTimeout(() => {
-      setIsOpen(false);
-    }, 2000); // Adjust timing as needed
+  const toggleDoor = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
-    <div className="door-container">
-      <div className={`door ${isOpen ? "open" : ""}`}>
+    <div className="backDoor">
+      {isOpen && (
+        <div className="">
+          <ul>
+            <li>JavaScript</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>React.js</li>
+            <li>Node.js</li>
+            <li>Python</li>
+            <li>Java</li>
+          </ul>
+        </div>
+      )}
+      <div className={`door ${isOpen ? "doorOpen" : ""}`} onClick={toggleDoor}>
         <div className="door-frame">
           <div className="door-leaf"></div>
+          <div className="door-handle"></div>
         </div>
-        <div className="door-knob"></div>
-      </div>
-      <div className={`door-text ${isOpen ? "show" : ""}`}>
-        <ul>
-          <li>JavaScript</li>
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>React.js</li>
-          <li>Node.js</li>
-          <li>Python</li>
-          <li>Java</li>
-        </ul>
-      </div>
-      <div className="door-button" onClick={handleKnock}>
-        <span>Knock Here</span>
       </div>
     </div>
   );
