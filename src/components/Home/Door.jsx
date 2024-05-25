@@ -20,6 +20,7 @@ const Door = () => {
             <li>Node.js</li>
             <li>Python</li>
             <li>Java</li>
+            <li>MERN</li>
           </ul>
         </div>
       )}
