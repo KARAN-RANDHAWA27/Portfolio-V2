@@ -1,201 +1,73 @@
-.homepage-container {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    overflow: hidden;
-  }
-  
-  .background-overlay {
-    position: absolute;
-    inset: 0;
-    background-image: linear-gradient(
-      225deg,
-      rgba(114, 8, 52, 0.8),
-      rgba(37, 10, 46, 0.8),
-      rgba(15, 12, 45, 0.8),
-      rgba(9, 21, 153, 0.8),
-      rgba(84, 98, 107, 0.8)
-    );
-    z-index: -1;
-  }
-  
-  .content-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .intro-section {
-    width: 100%;
-    max-width: 800px;
-    margin-bottom: 40px;
-  }
-  
-  .intro-box {
-    /* background-color: rgba(0, 0, 0, 0.8); */
-    border: 2px solid rgba(114, 8, 52, 0.8);
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 5px 5px 15px rgba(114, 8, 52, 0.8), -5px -5px 15px rgba(84, 98, 107, 0.8);
-  }
-  
-  .section-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #ffffff;
-    margin-bottom: 20px;
-  }
-  
-  .section-text {
-    font-size: 1.25rem;
-    color: #ffffff;
-    margin-bottom: 20px;
-  }
-  
-  .highlight-text {
-    color: #ff0642;
-  }
-  
-  @media (min-width: 768px) {
-    .content-container {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-  
-    .intro-section {
-      width: 60%;
-      margin-bottom: 0;
-    }
-  
-    .treasure-section {
-      width: 30%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-  
-  @media (max-width: 414px) {
-    .intro-section {
-      max-width: 100%;
-      padding: 10px;
-    }
-  
-    .intro-box {
-      padding: 15px;
-    }
-  
-    .section-title {
-      font-size: 2rem;
-    }
-  
-    .section-text {
-      font-size: 1rem;
-    }
-  }
-  
-  /* Treasure Box and Finger Click Animation */
-  .treasure-container {
-    position: relative;
-    width: 150px;
-    height: 150px;
-  }
-  
-  .treasure-box {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background-color: #c47f00;
-    border: 4px solid #8b5a00;
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-  }
-  
-  .lid {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 30%;
-    background-color: #8b5a00;
-    border-bottom: 4px solid #623d00;
-    border-radius: 5px 5px 0 0;
-    transform-origin: top;
-    animation: lidPop 2s infinite;
-  }
-  
-  .shining {
-    position: absolute;
-    top: 30%;
-    left: 0;
-    width: 100%;
-    height: 70%;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
-    pointer-events: none;
-  }
-  
-  @keyframes lidPop {
-    0%, 100% {
-      transform: rotateX(0deg);
-    }
-    50% {
-      transform: rotateX(20deg);
-    }
-  }
-  
-  .finger-click {
-    position: absolute;
-    bottom: -40px;
-    left: 50%;
-    width: 40px;
-    height: 40px;
-    background-color: #ff0642;
-    border-radius: 50%;
-    transform: translateX(-50%);
-    animation: fingerMove 1.5s infinite;
-  }
-  
-  @keyframes fingerMove {
-    0%, 100% {
-      transform: translate(-50%, 0);
-    }
-    50% {
-      transform: translate(-50%, -10px);
-    }
-  }
-  
-  /* Finger click style resembling a human hand */
-  .finger-click::before {
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    width: 20px;
-    height: 20px;
-    background-color: #ff0642;
-    border-radius: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .finger-click::after {
-    content: "";
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    width: 10px;
-    height: 20px;
-    background-color: #ff0642;
-    border-radius: 50%;
-    transform: translateX(-50%);
-  }
-  
+/* Existing styles */
 
-  .intro {
-    font-family: 'Freight Display Pro', serif; /* Apply Freight Display Pro font */
+.background-overlay {
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(
+    225deg,
+    rgba(114, 8, 52, 7.8),
+    rgba(37, 10, 46, 7.8),
+    rgba(15, 12, 45, 7.8),
+    rgba(9, 21, 153, 7.8),
+    rgba(84, 98, 107, 7.8)
+  );
+  z-index: -1;
+}
+
+.container {
+  padding: 20px;
+}
+
+.intro-section {
+  position: relative; 
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.intro-box {
+  border: 2px solid rgba(114, 8, 52, 0.8);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 5px 5px 15px rgba(114, 8, 52, 0.8), -5px -5px 15px rgba(84, 98, 107, 0.8);
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.section-text {
+  font-size: 1.25rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.highlight-text {
+  color: #ff0642;
+}
+
+.intro {
+  font-family: 'Freight Display Pro', serif;
+}
+
+.carousel-container {
+  width: 40%;
+  margin: auto;
+  overflow: hidden;
+  
+}
+
+.carousel img.custom-rounded {
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(114, 8, 52, 2.8); /* Adjusted shadow for circular shape */
+
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    width: 60%;
   }
+}

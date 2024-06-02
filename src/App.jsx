@@ -3,9 +3,11 @@ import "./App.css";
 import "./index.css"; // Import Tailwind CSS
 import Hero from "./components/Hero/Hero";
 import AppRouter from "./router/Router";
+import Loader from "./components/Loader/Loader";
 
 function App() {
   const [flipped, setFlipped] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleScroll = () => {
     setFlipped(!flipped);
@@ -20,6 +22,11 @@ function App() {
   };
 
   useEffect(() => {
+    // Simulate loading for 2.5 seconds
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
     window.addEventListener("wheel", handleWheel);
     return () => {
       window.removeEventListener("wheel", handleWheel);
@@ -27,15 +34,24 @@ function App() {
   }, [flipped]);
 
   return (
-    <div className="flip-container">
-      <div className={`flip ${flipped ? "flip-active" : ""}`}>
-        <div className="front">
-          <Hero onScroll={handleScroll} />
+    <div className="homepage">
+      <div className="background-overlay"></div>
+
+      {/* Conditionally render Loader or content */}
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className="flip-container">
+          <div className={`flip ${flipped ? "flip-active" : ""}`}>
+            <div className="front">
+              <Hero onScroll={handleScroll} />
+            </div>
+            <div className="back">
+              <AppRouter />
+            </div>
+          </div>
         </div>
-        <div className="back">
-          <AppRouter />
-        </div>
-      </div>
+      )}
     </div>
   );
 }

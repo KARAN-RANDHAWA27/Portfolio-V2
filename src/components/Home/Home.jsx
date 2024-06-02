@@ -1,34 +1,70 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Header from "../Header/Header";
-import "./Home.css"; // Ensure you include your CSS file for the homepage
-import Door from "./Door";
+import { Carousel } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import dev1 from "../../assets/dev1.jpg";
+import dev2 from "../../assets/dev2.jpg";
+import dev3 from "../../assets/dev3.jpg";
+import "./Home.css";
 
 const Homepage = () => {
   return (
-    <div className="homepage-container">
-      <div className="background-overlay"></div>
+    <div>
       <Header />
-      <main className="content-container">
-        {/* Left Section (Intro) */}
-        <section className="intro-section md:w-2/3 mt-5 md:pr-10 mb-8 md:mb-0">
-          <div className="intro-box animate-intro">
-            <h2 className="section-title">Welcome to My Portfolio</h2>
-            <p className="section-text">
-              Hello, I'm <span className="highlight-text">Your Name</span>, a
-              passionate and detail-oriented full stack developer with a proven
-              track record of designing, implementing, and maintaining
-              cutting-edge web applications. Proficient in both front-end and
-              back-end technologies, I excel at creating seamless user
-              experiences and scalable server-side solutions.
-            </p>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-6 mt-4">
+            <div className="intro-section">
+              <div className="intro-box animate-intro">
+                <h2 className="section-title">Welcome to My Portfolio</h2>
+                <p className="section-text">
+                  Hello, I'm <span className="highlight-text">Your Name</span>,
+                  a passionate and detail-oriented full stack developer with a
+                  proven track record of designing, implementing, and
+                  maintaining cutting-edge web applications. Proficient in both
+                  front-end and back-end technologies, I excel at creating
+                  seamless user experiences and scalable server-side solutions.
+                </p>
+                <p className="section-text">
+                  Hello, I'm <span className="highlight-text">Your Name</span>,
+                  a passionate and detail-oriented full stack developer with a
+                  proven track record of designing, implementing, and
+                  maintaining cutting-edge web applications. Proficient in both
+                  front-end and back-end technologies, I excel at creating
+                  seamless user experiences and scalable server-side solutions.
+                </p>
+              </div>
+            </div>
           </div>
-        </section>
-
-        {/* Right Section (Treasure Box) */}
-        <section className="treasure-section md:w-1/3 flex justify-center items-center">
-          <Door />
-        </section>
-      </main>
+          <div className="col-md-6 d-flex flex-column align-items-center">
+            <div className="carousel-container">
+              <Carousel>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100 custom-rounded"
+                    src={dev1}
+                    alt="Profile"
+                  />
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100 custom-rounded"
+                    src={dev2}
+                    alt="Profile"
+                  />
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100 custom-rounded"
+                    src={dev3}
+                    alt="Profile"
+                  />
+                </Carousel.Item>
+              </Carousel>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
