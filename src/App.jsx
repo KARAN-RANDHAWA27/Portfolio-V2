@@ -25,7 +25,7 @@ function App() {
     // Simulate loading for 2.5 seconds
     setTimeout(() => {
       setIsLoading(false);
-    }, 3000);
+    }, 5000);
 
     window.addEventListener("wheel", handleWheel);
     return () => {

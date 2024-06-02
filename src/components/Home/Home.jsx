@@ -18,15 +18,7 @@ const Homepage = () => {
               <div className="intro-box animate-intro">
                 <h2 className="section-title">Welcome to My Portfolio</h2>
                 <p className="section-text">
-                  Hello, I'm <span className="highlight-text">Your Name</span>,
-                  a passionate and detail-oriented full stack developer with a
-                  proven track record of designing, implementing, and
-                  maintaining cutting-edge web applications. Proficient in both
-                  front-end and back-end technologies, I excel at creating
-                  seamless user experiences and scalable server-side solutions.
-                </p>
-                <p className="section-text">
-                  Hello, I'm <span className="highlight-text">Your Name</span>,
+                  Hello, I'm <span className="highlight-text">Karan Randhawa</span>,
                   a passionate and detail-oriented full stack developer with a
                   proven track record of designing, implementing, and
                   maintaining cutting-edge web applications. Proficient in both

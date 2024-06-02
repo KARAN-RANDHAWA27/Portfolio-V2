@@ -33,7 +33,7 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center py-4 px-4 md:px-0">
         <div className="flex items-center">
           <ReactRouterLink to="/" className="text-xl font-bold text-white">
-            Your Logo or Brand
+            Karan Randhawa
           </ReactRouterLink>
         </div>
 

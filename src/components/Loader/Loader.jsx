@@ -7,7 +7,7 @@ const Loader = ({ isLoading, setIsLoading }) => {
     if (isLoading) {
       setTimeout(() => {
         setIsLoading(false);
-      }, 3000);
+      }, 5000);
     }
   }, [isLoading, setIsLoading]);
 
