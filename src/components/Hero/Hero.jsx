@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ReactTyped } from "react-typed";
 import { ArrowDownIcon } from "@heroicons/react/solid";
-import profile from "../../assets/profile.jpg";
+import profile from "../../assets/profile_img.jpg";
 import "./Hero.css";
 
 const Hero = ({ onScroll }) => {
