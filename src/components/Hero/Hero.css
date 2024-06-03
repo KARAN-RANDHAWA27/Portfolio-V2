@@ -1,27 +1,65 @@
-.animate-image-tilt {
-  animation: tilt 1s ease-in-out infinite alternate;
-}
-
-@keyframes tilt {
+/* Profile picture rotating border animation */
+@keyframes rotate-border {
   0% {
-    transform: rotate(-2deg);
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
   }
   100% {
-    transform: rotate(2deg);
+    background-position: 0 0;
   }
 }
 
-.video-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  transition: opacity 1s ease-in-out;
+@keyframes fluidity-hover {
+  0% {
+    background-size: 400%;
+  }
+  50% {
+    background-size: 200%;
+  }
+  100% {
+    background-size: 400%;
+  }
 }
 
+.rotating-border {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 50%; /* Ensuring the shape remains circular */
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out; /* Smooth transition for scaling */
+}
+
+.rotating-border::before, .rotating-border::after {
+  content: '';
+  position: absolute;
+  top: -5px; /* Adjust according to border width */
+  left: -5px; /* Adjust according to border width */
+  width: calc(100% + 10px); /* Adjust according to border width */
+  height: calc(100% + 10px); /* Adjust according to border width */
+  background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000);
+  background-size: 400%;
+  z-index: -1;
+  border-radius: 50%; /* Ensuring the shape remains circular */
+  animation: rotate-border 20s linear infinite;
+  transition: background-size 0.3s ease-in-out;
+}
+
+.rotating-border::after {
+  filter: blur(20px);
+}
+
+.rotating-border:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.rotating-border:hover::before {
+  animation: fluidity-hover 2s linear infinite;
+}
+
+/* Additional styles */
 .fade-out {
   opacity: 0;
 }
@@ -36,16 +74,37 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* Add media queries to handle responsiveness */
 .contact-button {
-  width: 100%; /* Make buttons take full width on small screens */
-  margin-bottom: 0.5rem; /* Add some space between stacked buttons */
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  border: 2px solid #8d0837;
+  color: #ffffff;
+  transition: color 0.3s, background-color 0.3s;
 }
 
-@media (min-width: 768px) {
-  .contact-button {
-    width: auto; /* Reset width for larger screens */
-    margin-bottom: 0; /* Remove bottom margin for larger screens */
-    margin-right: 1rem; /* Add space to the right */
-  }
+.contact-button::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  background-color: #8d0837;
+  z-index: -1;
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s, opacity 0.3s;
+  opacity: 0.7;
+}
+
+.contact-button:hover {
+  color: #ffffff;
+  background-color: #8d0837;
+}
+
+.contact-button:hover::before {
+  transform: translateY(-50%) scaleX(1);
+  transform-origin: left;
+  opacity: 1;
 }

@@ -1,45 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { ReactTyped } from "react-typed";
 import { ArrowDownIcon } from "@heroicons/react/solid";
 import profile from "../../assets/profile.jpg";
-import hero from "../../assets/hero.mp4";
 import "./Hero.css";
 
 const Hero = ({ onScroll }) => {
   const [typedIndex, setTypedIndex] = useState(0);
-  const [fade, setFade] = useState(false);
   const stringColors = ["#0b3d91", "#800080", "#e0e0e0"];
 
   const handleTyped = (index) => {
     setTypedIndex(index);
   };
 
-  // Handle video fade effect on restart
-  const handleVideoRestart = () => {
-    setFade(true);
-    setTimeout(() => {
-      setFade(false);
-    }, 1000); // Duration should match the CSS transition time
-  };
-
-  useEffect(() => {
-    const videoElement = document.getElementById("background-video");
-    videoElement.addEventListener("ended", handleVideoRestart);
-    return () => {
-      videoElement.removeEventListener("ended", handleVideoRestart);
-    };
-  }, []);
-
   return (
     <div className="relative min-h-screen flex flex-col justify-center items-center text-white px-4">
-      <video
-        id="background-video"
-        className={`video-background ${fade ? "fade-out" : "fade-in"}`}
-        src={hero}
-        autoPlay
-        loop
-        muted
-      />
       <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
       <div className="relative flex flex-col md:flex-row items-center w-full max-w-7xl">
         <div className="flex-1 text-center md:text-left mb-8 md:mb-0">
@@ -50,39 +24,17 @@ const Hero = ({ onScroll }) => {
             I'm <span style={{ color: "#FF0642" }}>Karan Randhawa</span>
           </h1>
           <div className="text-xl md:text-2xl mb-4">
-            {typedIndex === 0 && (
-              <ReactTyped
-                strings={["Full Stack Developer"]}
-                typeSpeed={100}
-                backSpeed={50}
-                loop
-                onComplete={() => handleTyped(1)}
-                smartBackspace
-                style={{ color: stringColors[0] }}
-              />
-            )}
-            {typedIndex === 1 && (
-              <ReactTyped
-                strings={["Application Developer"]}
-                typeSpeed={100}
-                backSpeed={50}
-                loop
-                onComplete={() => handleTyped(2)}
-                smartBackspace
-                style={{ color: stringColors[1] }}
-              />
-            )}
-            {typedIndex === 2 && (
-              <ReactTyped
-                strings={["Designer"]}
-                typeSpeed={100}
-                backSpeed={50}
-                loop
-                onComplete={() => handleTyped(0)}
-                smartBackspace
-                style={{ color: stringColors[2] }}
-              />
-            )}
+            <ReactTyped
+              strings={[
+                "Full Stack Developer",
+                "Application Developer",
+                "Designer",
+              ]}
+              typeSpeed={100}
+              backSpeed={50}
+              loop
+              style={{ color: "#0b3d91" }}
+            />
           </div>
           <div className="mb-4 flex flex-col md:flex-row justify-center md:justify-center">
             <button
@@ -99,30 +51,16 @@ const Hero = ({ onScroll }) => {
                 // Handle contact me action
               }}
             >
-              Contact Me
+              Hire Me
             </button>
           </div>
         </div>
         <div className="flex-1 flex justify-center md:justify-end">
-          <div
-            className="relative p-1 md:p-6 lg:p-8 animate-image-tilt"
-            style={{
-              borderRadius: "16px",
-              backgroundImage: `linear-gradient(225deg, 
-                rgba(114, 8, 52, 0.8), 
-                rgba(37, 10, 46, 0.8), 
-                rgba(15, 12, 45, 0.8), 
-                rgba(9, 21, 153, 0.8), 
-                rgba(84, 98, 107, 0.8))`,
-            }}
-          >
+          <div className="relative p-1 md:p-6 lg:p-8 rotating-border">
             <img
-              src={profile} // Put your image path here
+              src={profile}
               alt="Karan Randhawa"
-              className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover"
-              style={{
-                borderRadius: "16px",
-              }}
+              className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-full profile-picture"
             />
           </div>
         </div>

@@ -18,8 +18,9 @@ const Homepage = () => {
               <div className="intro-box animate-intro">
                 <h2 className="section-title">Welcome to My Portfolio</h2>
                 <p className="section-text">
-                  Hello, I'm <span className="highlight-text">Karan Randhawa</span>,
-                  a passionate and detail-oriented full stack developer with a
+                  Hello, I'm{" "}
+                  <span className="highlight-text">Karan Randhawa</span>, a
+                  passionate and detail-oriented full stack developer with a
                   proven track record of designing, implementing, and
                   maintaining cutting-edge web applications. Proficient in both
                   front-end and back-end technologies, I excel at creating
@@ -30,7 +31,7 @@ const Homepage = () => {
           </div>
           <div className="col-md-6 d-flex flex-column align-items-center">
             <div className="carousel-container">
-              <Carousel>
+              <Carousel controls={false} indicators={false} interval={2000}>
                 <Carousel.Item>
                   <img
                     className="d-block w-100 custom-rounded"

@@ -25,7 +25,7 @@ function App() {
     // Simulate loading for 2.5 seconds
     setTimeout(() => {
       setIsLoading(false);
-    }, 5000);
+    }, 2500);
 
     window.addEventListener("wheel", handleWheel);
     return () => {
@@ -34,25 +34,25 @@ function App() {
   }, [flipped]);
 
   return (
-    <div className="homepage">
-      <div className="background-overlay"></div>
+      <div className="homepage">
+        <div className="background-overlay"></div>
 
-      {/* Conditionally render Loader or content */}
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <div className="flip-container">
-          <div className={`flip ${flipped ? "flip-active" : ""}`}>
-            <div className="front">
-              <Hero onScroll={handleScroll} />
-            </div>
-            <div className="back">
-              <AppRouter />
+        {/* Conditionally render Loader or content */}
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <div className="flip-container">
+            <div className={`flip ${flipped ? "flip-active" : ""}`}>
+              <div className="front">
+                <Hero onScroll={handleScroll} />
+              </div>
+              <div className="back">
+                <AppRouter />
+              </div>
             </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
   );
 }
 export default App;
